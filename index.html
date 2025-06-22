@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مدونة الاتصالات الحديثة</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f9fa;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        transition: opacity 0.3s;
+      }
+
+      nav a:hover {
+        opacity: 0.8;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+            rgba(102, 126, 234, 0.8),
+            rgba(118, 75, 162, 0.8)
+          ),
+          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23667eea" width="1200" height="600"/></svg>');
+        color: white;
+        text-align: center;
+        padding: 4rem 0;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background: #ff6b6b;
+        color: white;
+        padding: 12px 30px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+      }
+
+      /* Main Content */
+      main {
+        padding: 3rem 0;
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .blog-posts {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .post {
+        border-bottom: 1px solid #eee;
+        padding: 2rem 0;
+      }
+
+      .post:last-child {
+        border-bottom: none;
+      }
+
+      .post h3 {
+        color: #667eea;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .post-meta {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .sidebar {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        height: fit-content;
+      }
+
+      .sidebar h3 {
+        color: #667eea;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #667eea;
+        padding-bottom: 0.5rem;
+      }
+
+      .sidebar ul {
+        list-style: none;
+      }
+
+      .sidebar li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .sidebar a {
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .sidebar a:hover {
+        color: #667eea;
+      }
+
+      /* Legal Sections */
+      .legal-section {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .legal-section h2 {
+        color: #667eea;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        border-bottom: 3px solid #667eea;
+        padding-bottom: 0.5rem;
+      }
+
+      .legal-section h3 {
+        color: #764ba2;
+        margin: 1.5rem 0 1rem 0;
+        font-size: 1.3rem;
+      }
+
+      .legal-section p {
+        margin-bottom: 1rem;
+        text-align: justify;
+      }
+
+      .legal-section ul {
+        margin: 1rem 0;
+        padding-right: 2rem;
+      }
+
+      .legal-section li {
+        margin-bottom: 0.5rem;
+      }
+
+      /* Footer */
+      footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 3rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-section h3 {
+        margin-bottom: 1rem;
+        color: #667eea;
+      }
+
+      .footer-section a {
+        color: #ccc;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.5rem;
+        transition: color 0.3s;
+      }
+
+      .footer-section a:hover {
+        color: white;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        nav ul {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .header-content {
+          text-align: center;
+        }
+      }
+
+      /* Smooth Scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Animation */
+      .fade-in {
+        animation: fadeIn 0.6s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Dark Mode Styles */
+      .dark-mode {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2d2d2d;
+        --bg-card: #333333;
+        --text-primary: #ffffff;
+        --text-secondary: #cccccc;
+        --text-muted: #999999;
+        --border-color: #444444;
+        --shadow: rgba(255, 255, 255, 0.1);
+      }
+
+      .dark-mode body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+      }
+
+      .dark-mode .blog-posts,
+      .dark-mode .sidebar,
+      .dark-mode .legal-section {
+        background: var(--bg-card);
+        color: var(--text-primary);
+        box-shadow: 0 5px 15px var(--shadow);
+      }
+
+      .dark-mode .post {
+        border-bottom-color: var(--border-color);
+      }
+
+      .dark-mode .sidebar li {
+        border-bottom-color: var(--border-color);
+      }
+
+      .dark-mode .sidebar a {
+        color: var(--text-secondary);
+      }
+
+      .dark-mode .sidebar a:hover {
+        color: #667eea;
+      }
+
+      .dark-mode .post-meta {
+        color: var(--text-muted);
+      }
+
+      .dark-mode .legal-section p {
+        color: var(--text-secondary);
+      }
+
+      /* Dark Mode Toggle */
+      .theme-toggle {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        background: #667eea;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: white;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      .dark-mode .theme-toggle {
+        background: #ffd700;
+        color: #333;
+      }
+
+      .dark-mode .theme-toggle:hover {
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+      }
+
+      /* Smooth transitions for dark mode */
+      body,
+      .blog-posts,
+      .sidebar,
+      .legal-section {
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <button
+      class="theme-toggle"
+      id="themeToggle"
+      aria-label="تبديل الوضع الليلي"
+    >
+      🌙
+    </button>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">📡 مدونة الاتصالات الحديثة</div>
+          <nav>
+            <ul>
+              <li><a href="#home">الرئيسية</a></li>
+              <li><a href="#blog">المدونة</a></li>
+              <li><a href="#terms">الشروط والأحكام</a></li>
+              <li><a href="#privacy">سياسة الخصوصية</a></li>
+              <li><a href="#contact">اتصل بنا</a></li>
+              <li>
+                <span style="font-size: 0.9rem; opacity: 0.8"
+                  >🌙 الوضع الليلي متاح</span
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="container">
+        <h1 class="fade-in">مرحباً بك في عالم الاتصالات الحديثة</h1>
+        <p class="fade-in">
+          اكتشف أحدث التقنيات والابتكارات في مجال الاتصالات والتكنولوجيا
+        </p>
+        <a href="#blog" class="btn fade-in">استكشف المقالات</a>
+      </div>
+    </section>
+
+    <main class="container">
+      <section id="blog">
+        <div class="content-grid">
+          <div class="blog-posts fade-in">
+            <h2>أحدث المقالات</h2>
+
+            <article class="post">
+              <h3>مستقبل شبكات الجيل الخامس 5G</h3>
+              <div class="post-meta">
+                نُشر في 15 ديسمبر 2024 | بواسطة فريق التحرير
+              </div>
+              <p>
+                تعرف على أحدث التطورات في تقنية الجيل الخامس وكيف ستغير طريقة
+                تفاعلنا مع التكنولوجيا. من السرعات الفائقة إلى التطبيقات الذكية،
+                اكتشف كيف ستشكل هذه التقنية مستقبلنا الرقمي.
+              </p>
+            </article>
+
+            <article class="post">
+              <h3>إنترنت الأشياء وتأثيره على حياتنا اليومية</h3>
+              <div class="post-meta">
+                نُشر في 10 ديسمبر 2024 | بواسطة د. أحمد محمد
+              </div>
+              <p>
+                استكشف كيف تغير تقنية إنترنت الأشياء (IoT) طريقة عيشنا وعملنا.
+                من المنازل الذكية إلى المدن المتصلة، تعرف على الفرص والتحديات
+                التي تواجه هذه التقنية الثورية.
+              </p>
+            </article>
+
+            <article class="post">
+              <h3>الذكاء الاصطناعي في الاتصالات</h3>
+              <div class="post-meta">
+                نُشر في 5 ديسمبر 2024 | بواسطة م. فاطمة علي
+              </div>
+              <p>
+                كيف يعيد الذكاء الاصطناعي تشكيل صناعة الاتصالات؟ من تحسين جودة
+                الشبكات إلى خدمة العملاء الآلية، اكتشف التطبيقات المبتكرة للذكاء
+                الاصطناعي في هذا المجال.
+              </p>
+            </article>
+          </div>
+
+          <aside class="sidebar fade-in">
+            <h3>الفئات</h3>
+            <ul>
+              <li><a href="#">شبكات الاتصال</a></li>
+              <li><a href="#">التكنولوجيا اللاسلكية</a></li>
+              <li><a href="#">الأمن السيبراني</a></li>
+              <li><a href="#">إنترنت الأشياء</a></li>
+              <li><a href="#">الذكاء الاصطناعي</a></li>
+            </ul>
+
+            <h3>المقالات الأكثر قراءة</h3>
+            <ul>
+              <li><a href="#">أساسيات الشبكات اللاسلكية</a></li>
+              <li><a href="#">حماية البيانات الشخصية</a></li>
+              <li><a href="#">مستقبل الاتصالات الفضائية</a></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="terms" class="legal-section fade-in">
+        <h2>الشروط والأحكام</h2>
+
+        <h3>1. القبول بالشروط</h3>
+        <p>
+          باستخدامك لموقع مدونة الاتصالات الحديثة، فإنك توافق على الالتزام بهذه
+          الشروط والأحكام. إذا كنت لا توافق على أي من هذه الشروط، يرجى عدم
+          استخدام الموقع.
+        </p>
+
+        <h3>2. استخدام الموقع</h3>
+        <p>
+          يُسمح لك باستخدام هذا الموقع للأغراض الشخصية والتعليمية فقط. يُمنع
+          استخدام الموقع لأي أغراض تجارية دون الحصول على إذن مسبق.
+        </p>
+        <ul>
+          <li>عدم نسخ أو توزيع المحتوى دون إذن</li>
+          <li>عدم استخدام الموقع لأنشطة غير قانونية</li>
+          <li>احترام حقوق الملكية الفكرية</li>
+          <li>عدم محاولة اختراق أو إلحاق الضرر بالموقع</li>
+        </ul>
+
+        <h3>3. المحتوى والملكية الفكرية</h3>
+        <p>
+          جميع المحتويات المنشورة على هذا الموقع، بما في ذلك النصوص والصور
+          والرسوم البيانية، محمية بحقوق الطبع والنشر وتخضع لقوانين الملكية
+          الفكرية.
+        </p>
+
+        <h3>4. إخلاء المسؤولية</h3>
+        <p>
+          نسعى لتقديم معلومات دقيقة ومحدثة، لكننا لا نضمن دقة أو اكتمال
+          المعلومات المقدمة. استخدام المعلومات على مسؤوليتك الشخصية.
+        </p>
+
+        <h3>5. التعديلات</h3>
+        <p>
+          نحتفظ بالحق في تعديل هذه الشروط والأحكام في أي وقت دون إشعار مسبق.
+          التعديلات تصبح سارية فور نشرها على الموقع.
+        </p>
+
+        <h3>6. القانون المطبق</h3>
+        <p>
+          تخضع هذه الشروط والأحكام للقوانين المعمول بها في دولة الإمارات العربية
+          المتحدة.
+        </p>
+      </section>
+
+      <section id="privacy" class="legal-section fade-in">
+        <h2>سياسة الخصوصية</h2>
+
+        <h3>1. جمع المعلومات</h3>
+        <p>نحن نجمع المعلومات التالية عند زيارتك لموقعنا:</p>
+        <ul>
+          <li>معلومات تقنية مثل عنوان IP ونوع المتصفح</li>
+          <li>معلومات الاستخدام مثل الصفحات المزارة ووقت الزيارة</li>
+          <li>المعلومات التي تقدمها طوعاً عند التسجيل أو التعليق</li>
+          <li>ملفات تعريف الارتباط (Cookies) لتحسين تجربة الاستخدام</li>
+        </ul>
+
+        <h3>2. استخدام المعلومات</h3>
+        <p>نستخدم المعلومات المجمعة للأغراض التالية:</p>
+        <ul>
+          <li>تحسين محتوى وخدمات الموقع</li>
+          <li>تخصيص تجربة المستخدم</li>
+          <li>إرسال تحديثات ونشرات إخبارية (بموافقتك)</li>
+          <li>تحليل استخدام الموقع وإحصائيات الزوار</li>
+          <li>الامتثال للمتطلبات القانونية</li>
+        </ul>
+
+        <h3>3. مشاركة المعلومات</h3>
+        <p>
+          نحن لا نبيع أو نؤجر أو نشارك معلوماتك الشخصية مع أطراف ثالثة، باستثناء
+          الحالات التالية:
+        </p>
+        <ul>
+          <li>عند الحصول على موافقتك الصريحة</li>
+          <li>للامتثال للقوانين والأنظمة</li>
+          <li>لحماية حقوقنا وسلامة المستخدمين</li>
+          <li>مع مقدمي الخدمات الموثوقين الذين يساعدوننا في تشغيل الموقع</li>
+        </ul>
+
+        <h3>4. أمان المعلومات</h3>
+        <p>
+          نتخذ تدابير أمنية مناسبة لحماية معلوماتك من الوصول غير المصرح به أو
+          التغيير أو الكشف أو التدمير. هذا يشمل:
+        </p>
+        <ul>
+          <li>تشفير البيانات الحساسة</li>
+          <li>استخدام بروتوكولات أمان متقدمة</li>
+          <li>مراقبة النظام بانتظام</li>
+          <li>تدريب الموظفين على أفضل ممارسات الأمان</li>
+        </ul>
+
+        <h3>5. ملفات تعريف الارتباط</h3>
+        <p>
+          نستخدم ملفات تعريف الارتباط لتحسين تجربتك على الموقع. يمكنك تعطيل هذه
+          الملفات من خلال إعدادات متصفحك، لكن هذا قد يؤثر على وظائف الموقع.
+        </p>
+
+        <h3>6. حقوقك</h3>
+        <p>لديك الحق في:</p>
+        <ul>
+          <li>الوصول إلى معلوماتك الشخصية</li>
+          <li>تصحيح أو تحديث معلوماتك</li>
+          <li>حذف معلوماتك (في ظروف معينة)</li>
+          <li>الاعتراض على معالجة معلوماتك</li>
+          <li>نقل معلوماتك إلى خدمة أخرى</li>
+        </ul>
+
+        <h3>7. الاتصال بنا</h3>
+        <p>
+          إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه، يمكنك الاتصال بنا عبر:
+        </p>
+        <ul>
+          <li>البريد الإلكتروني: privacy@moderncomms.com</li>
+          <li>الهاتف: +971-4-123-4567</li>
+          <li>العنوان: دبي، الإمارات العربية المتحدة</li>
+        </ul>
+
+        <h3>8. التحديثات</h3>
+        <p>
+          قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سنقوم بإشعارك بأي
+          تغييرات مهمة عبر البريد الإلكتروني أو إشعار على الموقع.
+        </p>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>تواصل معنا</h3>
+            <a href="mailto:info@moderncomms.com">info@moderncomms.com</a>
+            <a href="tel:+971412345678">+971-4-123-4567</a>
+            <p>دبي، الإمارات العربية المتحدة</p>
+          </div>
+          <div class="footer-section">
+            <h3>روابط سريعة</h3>
+            <a href="#home">الرئيسية</a>
+            <a href="#blog">المدونة</a>
+            <a href="#terms">الشروط والأحكام</a>
+            <a href="#privacy">سياسة الخصوصية</a>
+          </div>
+          <div class="footer-section">
+            <h3>تابعنا</h3>
+            <a href="#">فيسبوك</a>
+            <a href="#">تويتر</a>
+            <a href="#">لينكد إن</a>
+            <a href="#">يوتيوب</a>
+          </div>
+        </div>
+        <div
+          style="
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            margin-top: 2rem;
+          "
+        >
+          <p>&copy; 2024 مدونة الاتصالات الحديثة. جميع الحقوق محفوظة.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
+          }
+        });
+      });
+
+      // Add fade-in animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll('.legal-section, .blog-posts, .sidebar')
+        .forEach((el) => {
+          observer.observe(el);
+        });
+
+      // Dark Mode Toggle Functionality
+      const themeToggle = document.getElementById('themeToggle');
+      const body = document.body;
+
+      // Check for saved theme preference or default to light mode
+      const currentTheme = localStorage.getItem('theme') || 'light';
+
+      // Apply the saved theme
+      if (currentTheme === 'dark') {
+        body.classList.add('dark-mode');
+        themeToggle.textContent = '☀️';
+        themeToggle.setAttribute('aria-label', 'تبديل إلى الوضع النهاري');
+      }
+
+      // Theme toggle event listener
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+
+        // Update button icon and aria-label
+        if (body.classList.contains('dark-mode')) {
+          themeToggle.textContent = '☀️';
+          themeToggle.setAttribute('aria-label', 'تبديل إلى الوضع النهاري');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          themeToggle.textContent = '🌙';
+          themeToggle.setAttribute('aria-label', 'تبديل إلى الوضع الليلي');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+
+      // Add keyboard support for theme toggle
+      themeToggle.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          themeToggle.click();
+        }
+      });
+    </script>
+  </body>
+</html>
